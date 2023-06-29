@@ -10,6 +10,8 @@
 
 #import "RCTFabricComponentsPlugins.h"
 
+#import <GoogleMobileAds/GoogleMobileAds.h>
+
 using namespace facebook::react;
 
 auto stringToOnShouldStartLoadWithRequestNavigationTypeEnum(std::string value) {
@@ -310,6 +312,8 @@ auto stringToOnLoadingFinishNavigationTypeEnum(std::string value) {
 #if defined(__IPHONE_OS_VERSION_MAX_ALLOWED) && __IPHONE_OS_VERSION_MAX_ALLOWED >= 140500 /* iOS 14.5 */
     REMAP_WEBVIEW_PROP(textInteractionEnabled)
 #endif
+
+    [GADMobileAds.sharedInstance registerWebView:_view];
     
     if (oldViewProps.dataDetectorTypes != newViewProps.dataDetectorTypes) {
         WKDataDetectorTypes dataDetectorTypes = WKDataDetectorTypeNone;

@@ -29,6 +29,8 @@ import org.json.JSONObject;
 
 import java.util.Map;
 
+import com.google.android.gms.ads.MobileAds;
+
 @ReactModule(name = RNCWebViewManagerImpl.NAME)
 public class RNCWebViewManager extends SimpleViewManager<RNCWebView>
         implements RNCWebViewManagerInterface<RNCWebView> {
@@ -56,7 +58,10 @@ public class RNCWebViewManager extends SimpleViewManager<RNCWebView>
     @NonNull
     @Override
     protected RNCWebView createViewInstance(@NonNull ThemedReactContext context) {
-        return mRNCWebViewManagerImpl.createViewInstance(context);
+        RNCWebView view = mRNCWebViewManagerImpl.createViewInstance(context);
+        MobileAds.registerWebView(view);
+
+        return view;
     }
 
     @Override

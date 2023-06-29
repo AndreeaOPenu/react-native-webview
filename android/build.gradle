@@ -82,6 +82,7 @@ dependencies {
     implementation 'com.facebook.react:react-native:+'
     implementation "org.jetbrains.kotlin:kotlin-stdlib:${safeExtGet('kotlinVersion')}"
     implementation "androidx.webkit:webkit:${safeExtGet('webkitVersion')}"
+    implementation("com.google.android.gms:play-services-ads:21.4.0")
 }
 
 if (isNewArchitectureEnabled()) {
