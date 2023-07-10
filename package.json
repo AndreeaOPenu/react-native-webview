@@ -9,7 +9,7 @@
     "Thibault Malbranche <malbranche.thibault@gmail.com>"
   ],
   "license": "MIT",
-  "version": "13.2.4",
+  "version": "13.2.5",
   "homepage": "https://github.com/react-native-webview/react-native-webview#readme",
   "repository": {
     "type": "git",
@@ -26,9 +26,10 @@
     "windows": "install-windows-test-app --project-directory example/windows && react-native run-windows --root example --arch x64",
     "ci": "CI=true && yarn lint",
     "ci:publish": "yarn semantic-release",
-    "lint": "tsc --noEmit && yarn eslint ./src --ext .ts,.tsx",
-    "build": "tsc",
-    "prepare": "npm run build",
+    "lint": "yarn tsc --noEmit && yarn eslint ./src --ext .ts,.tsx",
+    "build": "yarn tsc",
+    "prepare": "yarn build",
+    "prepublish": "npm run build",
     "appium": "appium",
     "test:windows": "yarn jest --setupFiles=./jest-setups/jest.setup.js",
     "add:macos": "yarn add react-native-macos@0.68.62"
